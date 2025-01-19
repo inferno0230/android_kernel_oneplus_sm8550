@@ -167,3 +167,10 @@ arch/*/boot/dts/vendor
 
 # Documentation toolchain
 sphinx_*/
+
+# Build scripts
+out/
+error.log
+AnyKernel3
+drivers/kernelsu
+KernelSU
