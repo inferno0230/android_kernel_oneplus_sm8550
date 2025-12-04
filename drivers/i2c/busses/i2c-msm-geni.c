@@ -223,11 +223,6 @@ struct geni_i2c_dev {
 	bool prev_cancel_pending; //Halt cancel till IOS in good state
 	bool gsi_err; /* For every gsi error performing gsi reset */
 	bool is_i2c_rtl_based; /* doing pending cancel only for rtl based SE's */
-	bool skip_bw_vote; /* Used for PMIC over i2c use case to skip the BW vote */
-	bool bus_recovery_enable; //To be enabled by client if needed
-	atomic_t is_xfer_in_progress; /* Used to maintain xfer inprogress status */
-	bool is_deep_sleep; /* For deep sleep restore the config similar to the probe. */
-	bool i2c_test_dev; /* Set this DT flag to enable test bus dump for an SE */
 #ifdef OPLUS_FEATURE_CHG_BASIC
 	struct pinctrl *geni_pinctrl;
 	struct pinctrl_state *geni_gpio_active;
@@ -237,6 +232,11 @@ struct geni_i2c_dev {
 	bool i2c_reset_processing;
 	int err_count_for_reset;
 #endif
+	bool skip_bw_vote; /* Used for PMIC over i2c use case to skip the BW vote */
+	bool bus_recovery_enable; //To be enabled by client if needed
+	atomic_t is_xfer_in_progress; /* Used to maintain xfer inprogress status */
+	bool is_deep_sleep; /* For deep sleep restore the config similar to the probe. */
+	bool i2c_test_dev; /* Set this DT flag to enable test bus dump for an SE */
 };
 
 static struct geni_i2c_dev *gi2c_dev_dbg[MAX_SE];
@@ -2145,6 +2145,7 @@ static bool fg_need_i2c_reset(struct geni_i2c_dev *gi2c)
 
 	return ret;
 }
+
 #endif /* OPLUS_FEATURE_CHG_BASIC */
 
 static int geni_i2c_xfer(struct i2c_adapter *adap,

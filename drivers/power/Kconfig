@@ -163,6 +163,23 @@ config OPLUS_MP2762_CHARGER
 	help
 	  Say Y here to declare MP2762 support
 
+config OPLUS_UFCS_MASTER_NU2112A
+ 	bool "master cp nu2112A support"
+ 	default n
+ 	help
+ 	  Say Y here to declare master cp nu2112A support
+
+config OPLUS_UFCS_SLAVE_NU2112A
+ 	bool "slave cp nu2112A support"
+ 	default n
+ 	help
+ 	  Say Y here to declare slave cp nu2112A support
+
+config OPLUS_CHARGER_MAXIM
+	bool "encryption ic maxim support"
+	help
+	  Say Y here to declare encryption ic maxim support
+
 config OPLUS_SGM41512_CHARGER
 	bool "SGM41512 support"
 	help

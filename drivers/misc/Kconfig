@@ -536,7 +536,6 @@ config OPLUS_RF_CABLE_MONITOR
 	help
 	  Say Y here to enable OPLUS rf cable monitor system support
 #endif /* OPLUS_FEATURE_RF_CABLE_DETECT */
-
 #ifdef OPLUS_FEATURE_SIM_DETECT
 config SIM_DETECT
 	tristate "SIM_DETECT system"
@@ -553,14 +552,17 @@ config OEM_QMI
 	  Say Y here to enable oem qmi support
 #endif /* OPLUS_FEATURE_SIM_DETECT */
 
-#ifdef OPLUS_FEATURE_ESIM
 #change 'y' to 'n', if you want fo close this controller
 config OPLUS_GPIO
     tristate "oplus gpio controller"
     default n
     help
       define this config to control oplus gpio.
-#endif /* OPLUS_FEATURE_ESIM */
+
+config HAPTIC_FEEDBACK
+    tristate "Haptic driver feedback"
+    help
+      This option enables support for Haptic Driver Feedback.
 
 source "drivers/misc/c2port/Kconfig"
 source "drivers/misc/eeprom/Kconfig"
@@ -579,8 +581,9 @@ source "drivers/misc/cardreader/Kconfig"
 source "drivers/misc/habanalabs/Kconfig"
 source "drivers/misc/uacce/Kconfig"
 source "drivers/misc/pvpanic/Kconfig"
-source "drivers/misc/qrc/Kconfig"
 source "drivers/misc/tri_state_key/Kconfig"
+source "drivers/misc/qrc/Kconfig"
 source "drivers/misc/aw8697_haptic/Kconfig"
-source "drivers/misc/oplus_secure/Kconfig"
+source "drivers/misc/oplus_consumer_ir/Kconfig"
+
 endmenu

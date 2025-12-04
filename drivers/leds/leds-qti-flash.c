@@ -1284,6 +1284,7 @@ static int qti_flash_led_calc_max_avail_current(
 		return 0;
 	}
 #endif
+
 	rc = qti_battery_charger_get_prop("battery", BATTERY_RESISTANCE,
 						&rbatt_uohm);
 	if (rc < 0) {

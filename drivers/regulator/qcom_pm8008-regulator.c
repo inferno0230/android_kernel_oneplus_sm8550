@@ -891,6 +891,7 @@ static int pm8008_parse_regulator(struct regmap *regmap, struct device *dev)
 			return rc;
 		}
 	}
+
 	/* parse each subnode and register regulator for regulator child */
 	for_each_available_child_of_node(dev->of_node, child) {
 		pm8008_reg = devm_kzalloc(dev, sizeof(*pm8008_reg), GFP_KERNEL);

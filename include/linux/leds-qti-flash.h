@@ -32,6 +32,7 @@ int qti_flash_led_set_param(struct led_trigger *trig,
 #ifdef OPLUS_FEATURE_CAMERA_COMMON
 int set_flash_max_current_mA(int max_current_mA);
 #endif
+
 #else
 static inline int qti_flash_led_prepare(struct led_trigger *trig,
 					int options, int *max_current)

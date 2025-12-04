@@ -1,1 +1,1 @@
-../../../../sm8550-modules/oplus/kernel/device_info/device_info/device_info.h
+../../../drivers/soc/oplus/device_info/device_info.h

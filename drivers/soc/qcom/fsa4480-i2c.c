@@ -3,7 +3,6 @@
  * Copyright (c) 2018-2021, The Linux Foundation. All rights reserved.
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
-
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/power_supply.h>

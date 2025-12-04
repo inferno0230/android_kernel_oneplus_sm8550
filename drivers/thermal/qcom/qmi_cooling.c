@@ -358,7 +358,6 @@ static const struct proc_ops proc_horae_qmi_fops = {
 static int qmi_register_cooling_device(struct qmi_cooling_device *qmi_cdev)
 {
 	int i;
-
 	qmi_cdev->cdev = thermal_of_cooling_device_register(
 					qmi_cdev->np,
 					qmi_cdev->cdev_name,
@@ -378,6 +377,7 @@ static int qmi_register_cooling_device(struct qmi_cooling_device *qmi_cdev)
 			pr_err("horae qmi_cdev %s register successful!\n", horae_qmi_cdev[i].name);
 		}
 	}
+
 	return 0;
 }
 

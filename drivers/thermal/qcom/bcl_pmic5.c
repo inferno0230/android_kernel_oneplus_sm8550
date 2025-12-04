@@ -26,6 +26,10 @@
 #ifdef OPLUS_FEATURE_CHG_BASIC
 #include <linux/power_supply.h>
 #include <linux/proc_fs.h>
+#define CREATE_TRACE_POINTS
+#include "trace.h"
+#include <linux/rtc.h>
+#include <linux/time.h>
 #endif
 
 #define BCL_DRIVER_NAME       "bcl_pmic5"
@@ -659,6 +663,7 @@ static irqreturn_t bcl_handle_irq(int irq, void *data)
 				curr = psy.intval;
 			}
 		}
+		trace_bcl_stat(time_s, id, level, vol, curr);
 	}
 #endif
 
@@ -741,6 +746,7 @@ static int bcl_get_devicetree_data(struct platform_device *pdev,
 	int ret = 0;
 	const __be32 *prop = NULL;
 	struct device_node *dev_node = pdev->dev.of_node;
+
 #ifdef OPLUS_FEATURE_CHG_BASIC
 	u8 h0_dgl_time, l0_dgl_time,h1_dgl_time,l1_dgl_time;
 #endif
@@ -1060,6 +1066,7 @@ static int bcl_probe(struct platform_device *pdev)
 		return -ENOMEM;
 	bcl_perph = bcl_devices[bcl_device_ct];
 	bcl_perph->dev = &pdev->dev;
+
 #ifdef OPLUS_FEATURE_CHG_BASIC
 	bcl_perph->id = bcl_device_ct;
 #endif

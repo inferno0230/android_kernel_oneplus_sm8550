@@ -68,10 +68,10 @@ static int qcom_reboot_reason_reboot(struct notifier_block *this,
 		return NOTIFY_OK;
 	for (reason = reasons; reason->cmd; reason++) {
 #ifdef OPLUS_OEM_BOOT_MODE
-			if ((!strcmp(cmd, reason->cmd))||
-					(!strcmp("other", reason->cmd))) {
+		if ((!strcmp(cmd, reason->cmd))||
+			(!strcmp("other", reason->cmd))) {
 #else
-			if (!strcmp(cmd, reason->cmd)) {
+		if (!strcmp(cmd, reason->cmd)) {
 #endif
 			nvmem_cell_write(reboot->nvmem_cell,
 					 &reason->pon_reason,
